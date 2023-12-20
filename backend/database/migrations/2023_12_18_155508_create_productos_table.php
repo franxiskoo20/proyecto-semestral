@@ -13,6 +13,7 @@ class CreateProductosTable extends Migration
             $table->string('nombre');
             $table->string('marca');
             $table->decimal('precio', 8, 2);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
