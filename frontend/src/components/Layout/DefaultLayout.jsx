@@ -11,6 +11,7 @@ const DefaultLayout = ({ children }) => {
         component="main"
         sx={{
           flexGrow: 1,
+          overflow: "auto",
         }}
       >
         <Container maxWidth="lg" sx={{ boxSizing: "border-box", my: 15 }}>

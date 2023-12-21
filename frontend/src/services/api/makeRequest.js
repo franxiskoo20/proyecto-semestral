@@ -7,8 +7,8 @@ async function makeRequest(method, url, data = null) {
       url: url,
       data: data,
     };
-
     const response = await httpClient(config);
+
     return response.data;
   } catch (error) {
     let errorMessage;

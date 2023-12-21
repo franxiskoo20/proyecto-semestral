@@ -8,9 +8,10 @@ use Illuminate\Validation\ValidationException;
 
 class ProductoController extends Controller
 {
+
     public function index()
     {
-        $productos = Producto::withTrashed()->get(); // Obtener todos los productos, incluyendo los eliminados suavemente
+        $productos = Producto::withTrashed()->get();
         return response()->json($productos);
     }
 
@@ -60,6 +61,8 @@ class ProductoController extends Controller
 
         return response()->json(['message' => 'Producto actualizado'], 200);
     }
+
+
 
     public function destroy($id)
     {

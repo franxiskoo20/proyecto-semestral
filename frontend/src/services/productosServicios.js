@@ -1,6 +1,6 @@
 import makeRequest from "./api/makeRequest";
 
-export const productService = {
+const productosServicios = {
   agregarProducto({ nombre, marca, precio }) {
     return makeRequest("post", "/api/productos", { nombre, marca, precio });
   },
@@ -13,3 +13,5 @@ export const productService = {
     return makeRequest("delete", `/api/productos/${productoId}`);
   },
 };
+
+export default productosServicios;
