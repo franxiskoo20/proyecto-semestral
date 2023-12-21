@@ -26,7 +26,7 @@ class ProductoController extends Controller
         return response()->json($producto);
     }
 
-    public function store(Request $request)
+    public function crear(Request $request)
     {
         try {
             $request->validate([
