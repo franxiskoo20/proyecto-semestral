@@ -1,6 +1,7 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import CustomIconButton from "../components/Button/CustomIconButton";
+import PrecioChip from "../components/Chip/PrecioChip";
 
 const useProductoColumna = (productos, onEdit, onDelete) => {
   const columns = [
@@ -35,6 +36,10 @@ const useProductoColumna = (productos, onEdit, onDelete) => {
       options: {
         filter: false,
         sort: true,
+        customBodyRenderLite: (dataIndex) => {
+          const precio = productos[dataIndex].precio;
+          return <PrecioChip label={precio} />;
+        },
       },
     },
 
