@@ -10,6 +10,7 @@ export const SnackbarProvider = ({ children }) => {
   });
 
   const showSnackbar = (message, severity = "info") => {
+    console.log("entroShwo")
     setSnackbar({ open: true, message, severity });
   };
 
