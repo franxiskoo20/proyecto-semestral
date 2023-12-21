@@ -1,15 +1,15 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import AccionModal from "./AccionModal";
 import useGenericMutation from "../../hooks/useGenericMutation";
-// import { PRODUCT_SNACKBAR } from "../../constants/productSnackbar";
-// import { productService } from "../../services/productService";
-import { validacionProducto } from "../../utils/esquemaValidacion";
-import ProductoCamposFormulario from "../Inputs/ProductoCamposFormulario";
+import AccionModal from "./AccionModal";
+
+import { useEffect } from "react";
 import { PRODUCTO_SNACKBAR } from "../../constants/productoSnackbar";
 import productosServicios from "../../services/productosServicios";
+import { validacionProducto } from "../../utils/esquemaValidacion";
+import ProductoCamposFormulario from "../Inputs/ProductoCamposFormulario";
 
-const DEFAULT_VALORES_PRODUCTOS = {
+const DEFAULT_VALORES_EDITAR_PRODUCTOS = {
   nombre: "",
   marca: "",
   precio: "",
@@ -19,21 +19,32 @@ const EditarProductoModal = ({ open, onClose, toEdit, onUpdated }) => {
   const { handleSubmit, reset, control } = useForm({
     mode: "onChange",
     resolver: yupResolver(validacionProducto),
-    defaultValues: DEFAULT_VALORES_PRODUCTOS,
+    defaultValues: DEFAULT_VALORES_EDITAR_PRODUCTOS,
   });
 
-  const agregarProductoMutation = useGenericMutation({
-    mutationFn: productosServicios.agregarProducto,
-    successMessage: PRODUCTO_SNACKBAR.PRODUCTO_AGREGAR_ERROR.message,
-    errorMessage: PRODUCTO_SNACKBAR.PRODUCTO_AGREGAR_ERROR.message,
+  useEffect(() => {
+    if (toEdit) {
+      reset({
+        nombre: toEdit.nombre,
+        marca: toEdit.marca,
+        precio: toEdit.precio,
+      });
+    }
+  }, [toEdit, reset]);
+
+  const editarProductoMutation = useGenericMutation({
+    mutationFn: (data) =>
+      productosServicios.actualizarProducto(toEdit.id, data),
+    successMessage: PRODUCTO_SNACKBAR.PRODUCTO_EDIT_SUCCESS.message,
+    errorMessage: PRODUCTO_SNACKBAR.PRODUCTO_EDIT_ERROR.message,
     onSuccessCallback: () => {
       onClose?.();
-      onAdded?.();
+      onUpdated?.();
     },
   });
 
   const onSubmit = (data) => {
-    agregarProductoMutation.mutate(data);
+    editarProductoMutation.mutate(data);
   };
 
   // Reset campos del formulario al cerrar el modal
@@ -48,7 +59,7 @@ const EditarProductoModal = ({ open, onClose, toEdit, onUpdated }) => {
       onClose={handleClose}
       title="Agregar Producto"
       onSubmit={handleSubmit(onSubmit)}
-      isPending={agregarProductoMutation.isPending}
+      isPending={editarProductoMutation.isPending}
       submitLabel="Agregar"
     >
       <ProductoCamposFormulario control={control} />

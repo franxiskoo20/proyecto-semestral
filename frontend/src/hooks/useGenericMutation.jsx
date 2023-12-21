@@ -11,11 +11,13 @@ const useGenericMutation = ({
 
   return useMutation({
     mutationFn,
-    onError: () => {
-      showSnackbar(errorMessage, "error");
+    onError: (error) => {
+      console.log("entro error");
+      showSnackbar(errorMessage || error?.message, "error");
     },
-    onSuccess: () => {
-      showSnackbar(successMessage, "success");
+    onSuccess: (data) => {
+      console.log("entro data");
+      showSnackbar(successMessage || data?.message, "success");
       onSuccessCallback?.();
     },
   });

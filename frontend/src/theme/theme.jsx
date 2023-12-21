@@ -9,25 +9,25 @@ const theme = createTheme({
       default: "#F5F5F5",
     },
   },
-  // components: {
-  //   MuiTableCell: {
-  //     styleOverrides: {
-  //       root: {
-  //         justifyContent: "center !important",
-  //         textAlign: "center !important",
-  //       },
-  //     },
-  //   },
-  //   MUIDataTableHeadCell: {
-  //     styleOverrides: {
-  //       root: {
-  //         "& span": {
-  //           justifyContent: "center !important",
-  //         },
-  //       },
-  //     },
-  //   },
-  // },
+  components: {
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          justifyContent: "center !important",
+          textAlign: "center !important",
+        },
+      },
+    },
+    MUIDataTableHeadCell: {
+      styleOverrides: {
+        root: {
+          "& span": {
+            justifyContent: "center !important",
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;

@@ -12,6 +12,14 @@ const productosServicios = {
   eliminarProducto(productoId) {
     return makeRequest("delete", `/api/productos/${productoId}`);
   },
+
+  actualizarProducto(productoId, { nombre, marca, precio }) {
+    return makeRequest("put", `/api/productos/${productoId}`, {
+      nombre,
+      marca,
+      precio,
+    });
+  },
 };
 
 export default productosServicios;

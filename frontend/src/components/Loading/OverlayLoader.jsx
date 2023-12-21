@@ -16,7 +16,7 @@ const OverlayLoader = ({ isLoading }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(255, 255, 255, 0.7)",
+        backgroundColor: "rgba(0, 0, 0, 0.3)",
         zIndex: 2,
       }}
     >
