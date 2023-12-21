@@ -1,4 +1,5 @@
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import ArrowCircleLeft from "@mui/icons-material/ArrowCircleLeft";
 import MoveDownIcon from "@mui/icons-material/MoveDown";
 import SportsBarIcon from "@mui/icons-material/SportsBar";
 import {
@@ -23,7 +24,7 @@ const items = [
   {
     name: "Egresos",
     path: "/egreso",
-    icon: <ArrowCircleRightIcon color="primary" />,
+    icon: <ArrowCircleLeft color="primary" />,
   },
   {
     name: "Traspasos",

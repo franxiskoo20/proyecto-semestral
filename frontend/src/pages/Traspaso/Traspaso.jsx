@@ -4,7 +4,7 @@ import DefaultLayout from "../../components/Layout/DefaultLayout";
 const Traspaso = () => {
   return (
     <DefaultLayout>
-      <Typography variant="h1">Ingreso</Typography>;
+      <Typography variant="h1">Traspaso</Typography>;
     </DefaultLayout>
   );
 };

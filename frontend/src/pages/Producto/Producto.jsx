@@ -1,10 +1,13 @@
 import { Typography } from "@mui/material";
 import DefaultLayout from "../../components/Layout/DefaultLayout";
+import PaperContainer from "../../components/Container/PaperContainer";
 
 const Producto = () => {
   return (
     <DefaultLayout>
-      <Typography variant="h1">Ingreso</Typography>;
+      <PaperContainer>
+        <Typography variant="h1">Productos</Typography>
+      </PaperContainer>
     </DefaultLayout>
   );
 };

@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 import { titulosRutas } from "../../constants/titulosRutas";
 import NavegacionLista from "../../utils/navegacionLista";
 import Logo from "../Logo/Logo";
+
 const drawerWidth = 220;
 
 const AppBar = styled(MuiAppBar, {
@@ -115,7 +116,6 @@ export default function DrawerBar({ toggleDrawer, open }) {
           </Toolbar>
         </Box>
         <Divider />
-        {/* <List component="nav">{navegacionLista}</List> */}
         <NavegacionLista />
       </Drawer>
     </>
