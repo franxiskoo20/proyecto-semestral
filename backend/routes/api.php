@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\CargamentoController;
 use App\Http\Controllers\BodegaController;
+use App\Http\Controllers\InventarioController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -57,4 +58,16 @@ Route::group(['prefix' => 'bodegas'], function(){
 /*
 GET /bodegas: Obtener todas las bodegas.
 POST /bodegas: Crear una nueva bodega. 
+*/
+
+Route::group(['prefix' => 'inventarios'], function(){
+    Route::get('/', [InventarioController::class, 'verInventario']);
+    Route::post('/agregar', [InventarioController::class, 'agregarProducto']);
+    Route::post('/quitar', [InventarioController::class, 'quitarProducto']);
+});
+
+/*
+GET /inventarios: Obtener el inventario de una bodega específica.
+POST /inventarios/agregar: Agregar un producto al inventario de una bodega.
+POST /inventarios/quitar: Quitar un producto del inventario de una bodega. 
 */

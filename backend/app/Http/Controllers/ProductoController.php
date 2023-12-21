@@ -10,7 +10,7 @@ class ProductoController extends Controller
 {
     public function index()
     {
-        $productos = Producto::withTrashed()->get(); // Obtener todos los productos, incluyendo los eliminados suavemente
+        $productos = Producto::all(); // Obtener todos los productos, incluyendo los eliminados suavemente
         return response()->json($productos);
     }
 

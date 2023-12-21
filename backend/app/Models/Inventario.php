@@ -9,11 +9,16 @@ class Inventario extends Model
 {
     use HasFactory;
 
-    // ... (otros métodos y propiedades)
+    protected $fillable = ['producto_id', 'cantidad', 'bodega_id'];
 
     // Relación con la bodega
     public function bodega()
     {
         return $this->belongsTo(Bodega::class);
+    }
+
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class);
     }
 }

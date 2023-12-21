@@ -10,7 +10,10 @@ class CreateInventariosTable extends Migration
     {
         Schema::create('inventarios', function (Blueprint $table) {
             $table->id();
+            $table->integer('cantidad');
+            $table->unsignedBigInteger('producto_id');
             $table->unsignedBigInteger('bodega_id');
+            $table->foreign('producto_id')->references('id')->on('productos');
             $table->foreign('bodega_id')->references('id')->on('bodegas');
             // Agrega otros campos según sea necesario para el inventario
             $table->timestamps();
