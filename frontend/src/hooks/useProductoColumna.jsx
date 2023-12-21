@@ -16,7 +16,7 @@ const useProductoColumna = (productos, onEdit, onDelete) => {
     },
     {
       name: "nombre",
-      label: "Nombre",
+      label: "NOMBRE",
       options: {
         filter: false,
         sort: true,
@@ -24,7 +24,7 @@ const useProductoColumna = (productos, onEdit, onDelete) => {
     },
     {
       name: "marca",
-      label: "Marca",
+      label: "MARCA",
       options: {
         filter: false,
         sort: true,
@@ -32,7 +32,7 @@ const useProductoColumna = (productos, onEdit, onDelete) => {
     },
     {
       name: "precio",
-      label: "Precio",
+      label: "PRECIO",
       options: {
         filter: false,
         sort: true,
@@ -45,7 +45,7 @@ const useProductoColumna = (productos, onEdit, onDelete) => {
 
     {
       name: "created_at",
-      label: "fecha de creacion",
+      label: "FECHA DE CREACIÓN",
       options: {
         filter: false,
         sort: true,
@@ -53,7 +53,7 @@ const useProductoColumna = (productos, onEdit, onDelete) => {
     },
     {
       name: "updated_at",
-      label: "fecha de actualizacion",
+      label: "FECHA DE ACTUALIZACIÓN",
       options: {
         filter: false,
         sort: true,
